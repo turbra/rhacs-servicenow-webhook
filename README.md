@@ -22,7 +22,9 @@ This repo contains a ServiceNow **Scripted REST API** resource that receives web
 ## Prerequisites
 
 ### ServiceNow
-- A ServiceNow instance (Developer/Dev is fine)
+- [A ServiceNow instance (Developer/Dev is fine)](https://developer.servicenow.com/dev.do#!/home)
+- Once Logged in `Request instance`
+  - Choose your release and select `Request`
 - Permission to create:
   - Scripted REST API
   - Scripted REST Resource
