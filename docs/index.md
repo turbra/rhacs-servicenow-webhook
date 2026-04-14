@@ -7,10 +7,7 @@ page_type: landing
 ---
 
 <div class="rhacs-badge-row">
-  <a href="https://github.com/turbra/rhacs-servicenow-webhook/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/turbra/rhacs-servicenow-webhook" /></a>
-  <img alt="RHACS 4.9" src="https://img.shields.io/badge/RHACS-4.9-red" />
-  <img alt="ServiceNow Scripted REST" src="https://img.shields.io/badge/ServiceNow-Scripted_REST-blue" />
-  <img alt="Generic Webhook" src="https://img.shields.io/badge/Notifier-Generic_Webhook-lightgrey" />
+  <a href="https://github.com/turbra/rhacs-servicenow-webhook/blob/main/LICENSE"><img alt="License: Apache 2.0" src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" /></a>
 </div>
 
 <p class="rhacs-lead">
