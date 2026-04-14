@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% seo %}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+    {% include head-custom.html %}
+  </head>
+  <body>
+    <a class="rhacs-skip-link" href="#main-content">Skip to content</a>
+    <div class="rhacs-site-shell">
+      <header class="rhacs-site-header">
+        <div class="rhacs-site-header-inner">
+          <p class="rhacs-eyebrow">RHACS → ServiceNow Webhook</p>
+          <div class="rhacs-site-brand">
+            <div>
+              <p class="rhacs-site-brand-title">
+                <a href="{{ '/' | relative_url }}">ACS → ServiceNow</a>
+              </p>
+              <p class="rhacs-site-brand-tagline">
+                {{ site.description }}
+              </p>
+            </div>
+          </div>
+          <nav class="rhacs-site-header-actions" aria-label="Primary">
+            {% unless page.url == '/' or page.url == '/index.html' %}
+            <a href="{{ '/' | relative_url }}"><kbd>DOCS HOME</kbd></a>
+            {% endunless %}
+            {% unless page.url == '/documentation-map.html' %}
+            <a href="{{ '/documentation-map.html' | relative_url }}"><kbd>DOCS MAP</kbd></a>
+            {% endunless %}
+            {% unless page.url == '/capabilities.html' %}
+            <a href="{{ '/capabilities.html' | relative_url }}"><kbd>CAPABILITIES</kbd></a>
+            {% endunless %}
+            <a href="https://github.com/turbra/rhacs-servicenow-webhook"><kbd>REPOSITORY</kbd></a>
+          </nav>
+        </div>
+      </header>
+
+      {% assign breadcrumb_family = null %}
+      {% if page.topic_family %}
+        {% assign breadcrumb_family = site.topic_families[page.topic_family] %}
+      {% endif %}
+
+      <nav class="rhacs-breadcrumbs" aria-label="Breadcrumb">
+        <div class="rhacs-breadcrumbs-inner">
+          <a href="{{ '/' | relative_url }}">Home</a>
+          {% if breadcrumb_family %}
+            <span aria-hidden="true">/</span>
+            <span>{{ breadcrumb_family.label }}</span>
+          {% endif %}
+          {% if page.url != '/' and page.url != '/index.html' %}
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">{{ page.title }}</span>
+          {% endif %}
+        </div>
+      </nav>
+
+      <main id="main-content" class="rhacs-page-shell">
+        <div class="rhacs-content-column">
+          {% assign pt = site.page_types[page.page_type] %}
+          {% if pt %}
+          <div class="rhacs-page-type-banner" data-type="{{ page.page_type }}">
+            <span class="rhacs-page-type-label">{{ pt.label }}</span>
+            <span class="rhacs-page-type-blurb">{{ pt.blurb }}</span>
+          </div>
+          {% endif %}
+
+          <article class="markdown-body">
+            {{ content }}
+          </article>
+        </div>
+
+        <aside class="rhacs-side-column" aria-label="Page orientation">
+          {% if pt %}
+          <section class="rhacs-rail-block">
+            <h2 class="rhacs-rail-title">Page Type</h2>
+            <p class="rhacs-rail-body"><strong>{{ pt.label }}</strong><br />{{ pt.blurb }}</p>
+          </section>
+          {% endif %}
+
+          {% if breadcrumb_family %}
+          <section class="rhacs-rail-block">
+            <h2 class="rhacs-rail-title">Topic Family</h2>
+            <p class="rhacs-rail-body"><strong>{{ breadcrumb_family.label }}</strong></p>
+            <ul class="rhacs-rail-list">
+              {% for p in breadcrumb_family.pages %}
+                {% assign p_url = p.url | relative_url %}
+                {% if page.url == p.url %}
+                  <li><span aria-current="page">{{ p.title }}</span></li>
+                {% else %}
+                  <li><a href="{{ p_url }}">{{ p.title }}</a></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </section>
+          {% endif %}
+
+          <section class="rhacs-rail-block">
+            <h2 class="rhacs-rail-title">Start Here</h2>
+            <ul class="rhacs-rail-list">
+              <li><a href="{{ '/documentation-map.html' | relative_url }}">Documentation Map</a></li>
+              <li><a href="{{ '/capabilities.html' | relative_url }}">Capabilities</a></li>
+              <li><a href="{{ '/setup-servicenow.html' | relative_url }}">ServiceNow Setup</a></li>
+              <li><a href="{{ '/setup-rhacs.html' | relative_url }}">RHACS Setup</a></li>
+            </ul>
+          </section>
+
+          {% if page.source_path %}
+          <section class="rhacs-rail-block">
+            <h2 class="rhacs-rail-title">Source</h2>
+            <ul class="rhacs-rail-list">
+              <li><a href="https://github.com/turbra/rhacs-servicenow-webhook/blob/main/{{ page.source_path }}">{{ page.source_path }}</a></li>
+            </ul>
+          </section>
+          {% endif %}
+
+          <section class="rhacs-page-toc" id="rhacs-page-toc" hidden>
+            <h2 class="rhacs-rail-title" id="rhacs-on-this-page-title">On This Page</h2>
+            <ol class="rhacs-toc-list" id="rhacs-toc-list" aria-labelledby="rhacs-on-this-page-title"></ol>
+          </section>
+        </aside>
+      </main>
+
+      <footer class="rhacs-site-footer">
+        <div class="rhacs-site-footer-inner">
+          <p>Generated from repository docs on {{ site.time | date: "%Y-%m-%d" }}.</p>
+          <p>
+            <a href="https://github.com/turbra/rhacs-servicenow-webhook">Repository</a>
+            &middot;
+            <a href="https://github.com/turbra/rhacs-servicenow-webhook/tree/main/docs">Docs source</a>
+            &middot;
+            <a href="https://www.redhat.com/en/blog/how-integrate-red-hat-advanced-cluster-security-kubernetes-servicenow">Red Hat blog reference</a>
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
