@@ -201,3 +201,11 @@ Tip:
 * Require authentication on the Scripted REST resource.
 * Consider rate limiting / dedup logic to avoid alert storms.
 * Treat payload data as security-sensitive (it can contain usernames, groups, commands, etc.).
+
+---
+
+## License
+
+Apache License 2.0. See [`LICENSE`](./LICENSE).
+
+Copyright 2026 Red Hat, Inc.

@@ -1,3 +1,6 @@
+// Copyright 2026 Red Hat, Inc.
+// SPDX-License-Identifier: Apache-2.0
+
 (function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
     function get(obj, path, defVal) {
         try {
