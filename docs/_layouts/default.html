@@ -61,13 +61,6 @@
       <main id="main-content" class="rhacs-page-shell">
         <div class="rhacs-content-column">
           {% assign pt = site.page_types[page.page_type] %}
-          {% if pt %}
-          <div class="rhacs-page-type-banner" data-type="{{ page.page_type }}">
-            <span class="rhacs-page-type-label">{{ pt.label }}</span>
-            <span class="rhacs-page-type-blurb">{{ pt.blurb }}</span>
-          </div>
-          {% endif %}
-
           <article class="markdown-body">
             {{ content }}
           </article>
