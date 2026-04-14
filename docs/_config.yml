@@ -1,0 +1,74 @@
+title: "RHACS → ServiceNow Webhook"
+description: >-
+  Generic Webhook integration from Red Hat Advanced Cluster Security for
+  Kubernetes to ServiceNow Scripted REST, creating Incident records from policy
+  violations.
+url: "https://turbra.github.io"
+baseurl: "/rhacs-servicenow-webhook"
+theme: jekyll-theme-primer
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+exclude:
+  - README.md
+  - scripts/
+  - .git/
+  - Gemfile
+  - Gemfile.lock
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+page_types:
+  landing:
+    label: "Landing"
+    blurb: "Decision router. Start from problem, jump to page that matches."
+  map:
+    label: "Documentation Map"
+    blurb: "Intent-first nav. Pick route by what you are trying to do."
+  setup:
+    label: "Setup"
+    blurb: "One-time configuration on ServiceNow or RHACS side."
+  reference:
+    label: "Reference"
+    blurb: "Fact sheet. Field-level detail meant to be scanned, not read top-to-bottom."
+  capabilities:
+    label: "Capabilities"
+    blurb: "What the integration does, what it decides, what it refuses. Decision boundaries."
+  use_case:
+    label: "Practical Use Case"
+    blurb: "Operator-facing workflow. Problem → concrete pattern → why pattern → risk."
+
+topic_families:
+  setup:
+    label: "Setup + Install"
+    pages:
+      - { url: "/setup-servicenow.html", title: "ServiceNow Setup" }
+      - { url: "/setup-rhacs.html", title: "RHACS Setup" }
+  reference:
+    label: "Reference"
+    pages:
+      - { url: "/reference-handler-script.html", title: "Handler Script" }
+      - { url: "/reference-webhook-payload.html", title: "RHACS Webhook Payload" }
+      - { url: "/reference-incident-fields.html", title: "ServiceNow Incident Fields" }
+  capabilities:
+    label: "Capabilities"
+    pages:
+      - { url: "/capabilities.html", title: "What the integration does" }
+  use_cases:
+    label: "Practical Use Cases"
+    pages:
+      - { url: "/use-case-exec-into-pod.html", title: "Exec-into-Pod Triage" }
+      - { url: "/use-case-severity-mapping.html", title: "Severity → Urgency/Impact" }
+      - { url: "/use-case-dedup-storm-control.html", title: "Dedup + Storm Control" }
